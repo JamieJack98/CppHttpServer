@@ -14,7 +14,9 @@ namespace CppHttpServer
         struct sockaddr_in address;
     
     private:
+        int m_sock;
         int m_connection;
+        struct sockaddr_in m_address;
     };
 }
 
