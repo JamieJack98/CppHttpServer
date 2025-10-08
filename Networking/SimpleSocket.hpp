@@ -11,7 +11,42 @@ namespace CppHttpServer
     public:
         SimpleSocket(int domain, int service, int protocol, int port, unsigned long interface);
 
-        struct sockaddr_in address;
+        /**
+         * @brief pure virtual function to establish a connection with a socket
+         * 
+         * @param sock 
+         * @param address 
+         * @return int - error code
+         */
+        virtual int establish_connection(int sock, struct sockaddr_in address) = 0;
+
+        /**
+         * @brief test a connection or socket
+         * 
+         * @param itemToTest - socket or connection to be tested
+         */
+        void test_connection(int itemToTest);
+
+        /**
+         * @brief Get the Sock object
+         * 
+         * @return int - socket
+         */
+        int getSock();
+
+        /**
+         * @brief Get the Connection object
+         * 
+         * @return int - connection
+         */
+        int getConnection();
+
+        /**
+         * @brief Get the Address object
+         * 
+         * @return struct sockaddr_in 
+         */
+        struct sockaddr_in getAddress();
     
     private:
         int m_sock;
