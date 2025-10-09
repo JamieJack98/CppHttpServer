@@ -11,10 +11,6 @@ CppHttpServer::SimpleSocket::SimpleSocket(int domain, int service, int protocol,
     // Establish and test socket 
     m_sock = socket(domain, service, protocol);
     test_connection(m_sock);
-
-    // Establish and test socket
-    m_connection = establish_connection(m_sock, m_address);
-    test_connection(m_connection);
 }
 
 void CppHttpServer::SimpleSocket::test_connection(int itemToTest)
@@ -39,4 +35,9 @@ int CppHttpServer::SimpleSocket::getConnection()
 sockaddr_in CppHttpServer::SimpleSocket::getAddress()
 {
     return m_address;
+}
+
+void CppHttpServer::SimpleSocket::setConnection(int connection)
+{
+    m_connection = connection;
 }

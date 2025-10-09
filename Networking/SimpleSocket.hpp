@@ -47,6 +47,12 @@ namespace CppHttpServer
          * @return struct sockaddr_in 
          */
         struct sockaddr_in getAddress();
+
+        /**
+         * @brief Set the Connection object
+         * 
+         */
+        void setConnection(int connection);
     
     private:
         int m_sock;
