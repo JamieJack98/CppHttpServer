@@ -17,8 +17,12 @@ public:
         int backlog
     );
 
+    void startListening();
+
 private:
     int m_backlog;
+
+    int m_listening;
 };
 }
 

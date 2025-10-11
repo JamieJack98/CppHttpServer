@@ -8,6 +8,9 @@ CppHttpServer::ListeningSocket::ListeningSocket(
     unsigned long interface,
     int backlog) : BindingSocket(domain, service, protocol, port, interface),
                    m_backlog(backlog)
+{}
+
+void CppHttpServer::ListeningSocket::startListening()
 {
-    
+    m_listening = listen(getConnection(), m_backlog);
 }
